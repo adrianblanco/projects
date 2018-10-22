@@ -1,0 +1,310 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, /* strong,*/ sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ================== */
+
+
+body {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 60px;
+  margin: auto;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+article {
+    padding: 0.5rem;
+}
+
+img {
+    margin: 1rem;
+}
+
+h3 { 
+    margin-top: 3rem; 
+    margin-bottom: 1rem;
+}
+
+/* choose a light or dark theme to add to the body tag. */
+.dark-theme {
+    background-color: #181414;
+    color: #fcfbfb;
+}
+.light-theme {
+    background-color: white;
+    color: black;
+}
+.footer-theme {
+    background-color: #ffe5a7;
+    color: #000000;
+    padding: 3rem;
+    margin-top: 5rem;
+}
+
+.container {
+        max-width: 975px;
+}
+
+/* ******** */
+
+.image {
+    width: 100%;
+}
+
+.text-pad{
+  padding-left: 12%;
+  padding-right: 12%;
+  padding-bottom: 1rem;
+}
+
+.header-pad{
+  padding-left: 8%;
+  padding-right: 8%;
+  margin-bottom: 2.5rem;
+}
+
+.info {
+  height: 100px;
+  background: lightgrey;
+}
+
+.info-pad {
+  /** position: absolute; **/
+  height: 100px;
+  background: lightgrey;
+  padding: 0.5em;
+  vertical-align: center;
+}
+
+/*
+super-font
+.headline
+.kicker
+.subhead
+.label
+.label-text
+.credit
+
+sub-font
+.date
+.body-text
+.note
+*/
+
+
+
+.super-font {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.sub-font {
+    font-family: 'Lora', serif;
+}
+
+.headline {
+    font-size: 2.2rem;
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+    margin-top: 1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.headline-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.kicker-footer {
+    color: #4b4b4b;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.headline-footer {
+    color: #4b4b4b;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.body-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    /* margin-top: 1.5rem; */
+}
+
+.footer-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4b4b4b;
+}
+
+.tag-text {
+    font-size: 0.8rem;
+    color: #a3a3a3;
+    padding-top: 0.6rem;
+    /* margin-top: 1.5rem; */
+}
+
+.kicker {
+    font-size: 1.2rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.credit  {
+    font-size: 0.8rem;
+    line-height: 0.75;
+    margin-top: 2rem;
+    font-weight: 400;
+    text-align: center;
+    color: grey;
+}
+
+.quote  {
+    font-size: 0.9rem;
+    padding-bottom: 1rem;
+    line-height: 1.2;
+    font-weight: 400;
+    text-align: center;
+    color: grey;
+}
+
+.quote-attribution  {
+    font-size: 0.8rem;
+    padding-bottom: 0.4rem;
+    line-height: 1.1;
+    font-weight: 400;
+    color: grey;
+    text-align: center;
+}
+
+.quote-graph {
+    margin-bottom: 1em; 
+}
+
+.date {
+    font-size: 1rem;
+    line-height: 1;
+    margin-top: 0.25;
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+}
+
+.subhead {
+    font-size: 2rem;
+    line-height: 0.9;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    font-weight: 700;
+}
+
+.label {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.label-text {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.note {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+}
+.caption  {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.other-stories {
+    background-color: lightblue;
+}
+
+/** Review **/
+
+      svg { 
+        display: block;
+        margin: 0 auto;
+      }
+
+      .graticule {
+        fill: none;
+        stroke: #777;
+        stroke-width: .5px;
+        stroke-opacity: .5;
+      }
+     
+
+      .axis line, .axis path {
+        stroke-width: 0.5;
+        stroke: #999;
+      }
+

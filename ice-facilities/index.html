@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Minneapolis Home Sales, 2017</title>
+  <script type="text/javascript">
+  </script>
+  <!-- loading the mapbox, local if it is a real project-->
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css" rel="stylesheet" />
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+
+<body>
+
+<div id="map"></div>
+  <script>
+    // _underscore are his global variables
+    var _map         = null,
+        _centerLat   = 39.976665, //location for mineapolis
+        _centerLng   = -98.268653,
+        _dataFile    = "./ice-geo.geojson",
+        _accessToken = "pk.eyJ1IjoiYmx1ZXNoaXJ0IiwiYSI6ImYwMDA1MDI5ODdlMjk1YWZjMGQ3YTEyMGQxZGRmODQ2In0.kSD1BJsjJr2z8Meuz8F4Uw", // change access token
+        _mapStyle    = "mapbox://styles/blueshirt/cjn107vq99chu2rmo0luej5sn"; // and our own style
+
+    mapboxgl.accessToken = _accessToken;
+    _map = new mapboxgl.Map ({
+                               container: "map",
+                               style: _mapStyle,
+                               center: [_centerLng, _centerLat],
+                               zoom: 3
+    });
+
+    function init ()
+    {
+      _map.addSource ("markers-source", {
+                                         type: "geojson",
+                                         data: _dataFile
+      });
+
+      _map.addLayer (
+      {
+        "id": "markers",
+        "type": "circle",
+        "source": "markers-source",
+        "paint": {
+                  "circle-color":
+                  {
+                    property: "AdjustedSa",
+                    type: "interval",
+                    stops: [
+                        [100000, "#e7e1ef"],
+                        [200000, "#c994c7"],
+                        [300000, "#dd1c77"]
+                    ]
+                    },
+                   "circle-radius": 3,
+                   "circle-stroke-width": 0.5
+                 }
+         });
+
+      _map.on("click", function(e) {
+      var features = _map.queryRenderedFeatures(e.point, {
+          layers: ["markers"]
+      });
+      if (!features.length) {
+          return;
+      }
+      var feature = features[0];
+      var popup = new mapboxgl.Popup ()
+                            .setLngLat(_map.unproject  (e.point))
+                            .setHTML("<h3>HOME SALES INFORMATION</h3>" +
+                                "<ul>" +
+                                "<li><b>" + feature.properties.Address + "</b></li>" +
+                                "<li>Property type: <b>" + feature.properties.PropType + "</b></li>" +
+                                "<li>Sale price: <b>" + feature.properties.AdjustedSa + "</b></li>" +
+                                "</ul>")
+                            .addTo(_map);
+      });
+    }
+
+    _map.once ("style.load", function (e)
+    {
+      init ();
+      _map.addControl (new mapboxgl.NavigationControl ());
+    });
+
+  </script>
+  </body>
+</html>
+
+
