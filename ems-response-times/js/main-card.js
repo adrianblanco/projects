@@ -3,7 +3,7 @@
 
 ////////////////////// Leaflet Map Projection
 
-var map = L.map('map2', {zoomControl: false}).setView([40.838389, -73.940975], 14.5);
+var map_card = L.map('map_card', {zoomControl: false}).setView([40.556330, -73.926248], 13);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVmZmV2ZXJoYXJ0MzgzIiwiYSI6IjIwNzVlOTA3ODI2MTY0MjM3OTgxMTJlODgzNjg5MzM4In0.QA1GsfWZccIB8u0FbhJmRg', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -11,7 +11,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/{z}/{x}/{y}?
   id: 'mapbox.streets',
   opacity: 0.7,
   accessToken: 'pk.eyJ1IjoiamVmZmV2ZXJoYXJ0MzgzIiwiYSI6ImNqOXI2aDg5ejZhYncyd3M0bHd6cWYxc2oifQ.fzcb7maGkQhAxRZTotB4tg'
-  }).addTo(map);
+  }).addTo(map_card);
 
 function fadeMap(){
   $(".leaflet-tile-pane").css("opacity",.1);
@@ -20,35 +20,51 @@ function fadeMap(){
 ////////////////////// The journey begins here!
 ////////// Location, title and id of each step
 
-var warblerWaypoints2 = [{
+var warblerWaypoints = [{
   title: "First",
   id: 1,
-  location2: {
-    lat: 40.758494,
-    lng: -73.973019
+  location: {
+    lat: 40.556330,
+    lng: -73.926248
   }
 },
   {
   title: "Second",
   id: 2,
-  location2: {
-    lat: 40.758870,
-    lng: -73.978674
+  location: {
+    lat: 40.764257,
+    lng: -73.973423
   }
 },
   {
   title: "Third",
   id: 3,
-  location2: {
-    lat: 40.750939,
-    lng: -73.993434,
+  location: {
+    lat: 40.847955,
+    lng: -73.787377
+  }
+},
+  {
+  title: "Fourth",
+  id: 4,
+  location:  {
+    lat: 40.895037,
+    lng: -73.8067441
+  }
+},
+{
+  title: "Fifth",
+  id: 5,
+  location:  {
+    lat: 40.811452,
+    lng: -73.880229
   }
 },
 ]
 
 ////////// Disable zoom, fixes the map
 
-map.scrollWheelZoom.disable()
+map_card.scrollWheelZoom.disable()
 
 //////////
 
@@ -58,15 +74,15 @@ warblerWaypoints.forEach(waypoint => {
 
 //////////
 
-let latlngs = warblerWaypoints.map(waypoint => [waypoint.location.lat, waypoint.location.lng]);
+let latlngs2 = warblerWaypoints.map(waypoint => [waypoint.location.lat, waypoint.location.lng]);
 
 /** var polyline = L.polyline(latlngs, {smoothFactor: 10, color: 'orange', weight: 120, opacity: .5}).addTo(mymap);
 var polyline = L.polyline(latlngs, {color: 'red', dashArray: '12 12',}).addTo(mymap); **/
 
 // instantiate the scrollama
-const scroller = scrollama();
+const scroller2 = scrollama();
 // setup the instance, pass callback functions
-scroller
+scroller2
   .setup({
   step: '.step' // required - class name of trigger steps
   })
@@ -74,10 +90,8 @@ scroller
   .onStepExit(handleStepExit);
 
 function handleFlyTo(value){
-  map.panTo(warblerWaypoints[value - 1].location, {animate:true, duration: 2})
+  map_card.panTo(warblerWaypoints[value - 1].location, {animate:true, duration: 3.5})
 }
-
-
 
 function handleStepEnter(e){
   console.log('enter')
@@ -100,32 +114,32 @@ function handleStepExit(e){
 var color2 = "blue" // por defecto puedo poner
 
 
-function styleBuilder (d) {   // d, color
+function styleBuilder2 (d) {   // d, color
   console.log(d)
 
   if (color2 == "dark") {
 
-    return d < 8.5 ? '#ffffcc' :
-         d > 10.5 ? '#a1dab4' :
-         d > 10.5 ? '#41b6c4' :
-         d > 10.5 ? '#2c7fb8' :
-         d > 9.5 ? 'blue' : '#253494';
+    return d < 8.5 ? 'blue' :
+         d > 10.5 ? 'blue' :
+         d > 10.5 ? 'blue' :
+         d > 10.5 ? 'blue' :
+         d > 9.5 ? 'blue' : 'blue';
   }
 
   if (color2 == "blue") {
 
-    return d < 4.5 ? '#ffffcc' :
-         d > 10.5 ? '#a1dab4' :
-         d > 10.5 ? '#41b6c4' :
-         d > 10.5 ? '#2c7fb8' :
-         d > 9.5 ? 'yellow' : '#253494';
+    return d < 4.5 ? 'yellow' :
+         d > 10.5 ? 'yellow' :
+         d > 10.5 ? 'yellow' :
+         d > 10.5 ? 'yellow' :
+         d > 9.5 ? 'yellow' : 'red';
   }
 }
 
 
 function getStyle (feature) {
   return {
-    color: styleBuilder(feature.properties.respir_incident_response_min_qy)
+    color: styleBuilder2(feature.properties.respir_incident_response_min_qy)
   };
 }
 
@@ -157,11 +171,12 @@ var customLayer = L.geoJSON(null, {
 // customLayer (see above) where we designed it
 //omnivore.topojson('../data/zipcodes_respir.geojson', null, customLayer).addTo(map);
 
+
 // EPSG:4326 problem with NY state projection, map shaper, leaflet did not recognize it
 // 
 // BORRAR var dt = null, dt2 = null, dt3 = null
 
-dt = omnivore.topojson('data/respir.json', null, customLayer).addTo(map);
+dt = omnivore.topojson('data/card-geo.json', null, customLayer).addTo(map_card);
 console.log(customLayer)
 
 // different getStyles
@@ -171,6 +186,44 @@ console.log(customLayer)
 // Create updateLayer
 
 
+$('#card').click(function(){
+
+// Borrar los anteriores
+  if (map.hasLayer(dt)) {
+    map.removeLayer(dt) //L: Quitar palabra reservada "return"
+  } // dt por customLayer
+
+  color2 = "dark"
+
+  //L: customLayer ya declarado de manera global (en linea 158). Por eso, quitamos de aquí la palabra reservada "var"
+  customLayer = L.geoJSON(null, {
+  // http://leafletjs.com/reference.html#geojson-style
+  'style': getStyle
+  }).bindTooltip(neighborhoodPopup)
+
+  dt = omnivore.topojson('data/card.json', null, customLayer).addTo(map)
+
+})
+
+$('#respir').click(function(){
+
+  // updateLayer("blue", "data/respir.json")
+
+  if (map.hasLayer(dt)) {
+    map.removeLayer(dt) //Luis: Quitar palabra reservada "return"
+  }
+
+  color2 = "blue" 
+
+  //L: customLayer ya declarado de manera global (en linea 158). Por eso, quitamos de aquí la palabra reservada "var"
+  customLayer = L.geoJSON(null, {
+  // http://leafletjs.com/reference.html#geojson-style
+  'style': getStyle
+  }).bindTooltip(neighborhoodPopup)
+
+  dt = omnivore.topojson('data/respir.json', null, customLayer).addTo(map)
+
+})
 
 
 //var dt = omnivore.topojson('../data/zipcodes_2.json').addTo(map);
