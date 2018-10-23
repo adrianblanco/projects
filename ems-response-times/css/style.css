@@ -311,3 +311,14 @@ p {
     padding-top: 0.4rem;
     margin-bottom: 0.6rem;
 }
+
+
+.source-theme {
+    background-color: #c3f1d5;
+    color: #000000;
+}
+
+
+.source-info {
+    padding: 1em 1em;
+}

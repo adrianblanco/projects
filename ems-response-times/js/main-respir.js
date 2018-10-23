@@ -3,7 +3,7 @@
 
 ////////////////////// Leaflet Map Projection
 
-var map_respir = L.map('map_respir', {zoomControl: false}).setView([40.838389, -73.940975], 14.5);
+var map_respir = L.map('map_respir', {zoomControl: false}).setView([40.838389, -73.940975], 12.8);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVmZmV2ZXJoYXJ0MzgzIiwiYSI6IjIwNzVlOTA3ODI2MTY0MjM3OTgxMTJlODgzNjg5MzM4In0.QA1GsfWZccIB8u0FbhJmRg', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -24,24 +24,40 @@ var warblerWaypoints_respir = [{
   title: "First",
   id: 1,
   location_respir: {
-    lat: 40.758494,
-    lng: -73.973019
+    lat: 40.811452,
+    lng: -73.880229
   }
 },
   {
   title: "Second",
   id: 2,
   location_respir: {
-    lat: 40.758870,
-    lng: -73.978674
+    lat: 40.758494,
+    lng: -73.973019
   }
 },
   {
   title: "Third",
   id: 3,
   location_respir: {
+   lat: 40.758870,
+    lng: -73.978674
+  }
+},
+{
+  title: "Fourth",
+  id: 4,
+  location_respir: {
     lat: 40.750939,
     lng: -73.993434
+  }
+},
+{
+  title: "Fifth",
+  id: 5,
+  location_respir: {
+    lat: 40.665691,
+    lng: -73.885484
   }
 },
 ]
@@ -100,39 +116,36 @@ function handleStepExit_respir(e){
 var color2 = "blue" // por defecto puedo poner
 
 
-function styleBuilder (d) {   // d, color
+function styleBuilder_respir (d) {   // d, color
   console.log(d)
 
-  if (color2 == "dark") {
-
-    return d < 8.5 ? '#ffffcc' :
-         d > 10.5 ? '#a1dab4' :
-         d > 10.5 ? '#41b6c4' :
-         d > 10.5 ? '#2c7fb8' :
-         d > 9.5 ? 'blue' : '#253494';
-  }
-
-  if (color2 == "blue") {
-
-    return d < 4.5 ? '#ffffcc' :
-         d > 10.5 ? '#a1dab4' :
-         d > 10.5 ? '#41b6c4' :
-         d > 10.5 ? '#2c7fb8' :
-         d > 9.5 ? 'yellow' : '#253494';
-  }
+    return d > 12 ? 'black' :
+         d > 10.5 ? '#081d58' :
+         d > 10 ? '#54278f' :
+         d > 9 ? '#6a51a3' :
+         d > 8 ? '#807dba' :
+         d > 7 ? '#9e9ac8' :
+         d > 6 ? '#bcbddc' :
+         d > 5 ? '#dadaeb' : '#f0f0f0';
 }
 
 
-function getStyle (feature) {
+function getStyle_respir (feature) {
   return {
-    color: styleBuilder(feature.properties.respir_incident_response_min_qy)
+    color: styleBuilder_respir(feature.properties.respir_incident_response_min_qy),
+    weight: 1.8,
+    opacity: 0.9,
+    fillOpacity: 0.65
   };
 }
 
 /////////// infowindow
 
 function neighborhoodPopup (layer) {
-  return 'quartier ' + layer.feature.properties.STATE
+  return 'ZIP Code: ' + '<strong>' + layer.feature.properties.ZIPCODE + '</strong>'
+  + '<br>' + 'County: ' + '<strong>' + layer.feature.properties.COUNTY + '</strong>'
+  + '<br>' + 'Population: ' + '<strong>' + layer.feature.properties.POPULATION + '</strong>'
+  + '<br>' + 'Average response time: ' + '<strong>' + layer.feature.properties.respir_incident_response_min_qy + ' minutes' + '</strong>'
 }
 
 // This is where we design our neighborhoods
@@ -145,7 +158,7 @@ function neighborhoodPopup (layer) {
 
 var customLayer = L.geoJSON(null, {
 // http://leafletjs.com/reference.html#geojson-style
-  'style': getStyle
+  'style': getStyle_respir
 }).bindTooltip(neighborhoodPopup)
 
 

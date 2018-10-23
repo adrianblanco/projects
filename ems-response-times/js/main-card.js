@@ -3,13 +3,13 @@
 
 ////////////////////// Leaflet Map Projection
 
-var map_card = L.map('map_card', {zoomControl: false}).setView([40.556330, -73.926248], 13);
+var map_card = L.map('map_card', {zoomControl: false}).setView([40.811712, -73.883147], 13);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVmZmV2ZXJoYXJ0MzgzIiwiYSI6IjIwNzVlOTA3ODI2MTY0MjM3OTgxMTJlODgzNjg5MzM4In0.QA1GsfWZccIB8u0FbhJmRg', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
   maxZoom: 18,
   id: 'mapbox.streets',
-  opacity: 0.7,
+  opacity: 1,
   accessToken: 'pk.eyJ1IjoiamVmZmV2ZXJoYXJ0MzgzIiwiYSI6ImNqOXI2aDg5ejZhYncyd3M0bHd6cWYxc2oifQ.fzcb7maGkQhAxRZTotB4tg'
   }).addTo(map_card);
 
@@ -24,8 +24,8 @@ var warblerWaypoints = [{
   title: "First",
   id: 1,
   location: {
-    lat: 40.556330,
-    lng: -73.926248
+    lat: 40.811712, 
+    lng: -73.883147
   }
 },
   {
@@ -114,39 +114,46 @@ function handleStepExit(e){
 var color2 = "blue" // por defecto puedo poner
 
 
-function styleBuilder2 (d) {   // d, color
+function styleBuilder_card (d) {   // d, color
   console.log(d)
 
-  if (color2 == "dark") {
-
-    return d < 8.5 ? 'blue' :
-         d > 10.5 ? 'blue' :
-         d > 10.5 ? 'blue' :
-         d > 10.5 ? 'blue' :
-         d > 9.5 ? 'blue' : 'blue';
-  }
-
-  if (color2 == "blue") {
-
-    return d < 4.5 ? 'yellow' :
-         d > 10.5 ? 'yellow' :
-         d > 10.5 ? 'yellow' :
-         d > 10.5 ? 'yellow' :
-         d > 9.5 ? 'yellow' : 'red';
-  }
+    return d > 11 ? 'black' :
+         d > 10.5 ? '#67000d' :
+         d > 10 ? '#7f2704' :
+         d > 9 ? '#a63603' :
+         d > 8 ? '#d94801' :
+         d > 7 ? '#f16913' :
+         d > 6 ? '#fd8d3c' :
+         d > 5 ? '#fdae6b' : '#fff5eb';
 }
 
 
 function getStyle (feature) {
   return {
-    color: styleBuilder2(feature.properties.respir_incident_response_min_qy)
+    color: styleBuilder_card(feature.properties.card_incident_response_min_qy),
+    weight: 1.8,
+    opacity: 0.9,
+    fillOpacity: 0.65
+    //fill-opacity: 0.6,
+    // stroke: rgb(253, 141, 60);
+    // stroke-opacity: 1.5;
+    // stroke-linecap: round;
+    // stroke-linejoin: round;
+    // fill: rgb(253, 141, 60);
+    // fill-opacity: 0.2;
   };
 }
 
 /////////// infowindow
 
 function neighborhoodPopup (layer) {
-  return 'quartier ' + layer.feature.properties.STATE
+
+  return 'ZIP Code: ' + '<strong>' + layer.feature.properties.ZIPCODE + '</strong>'
+  + '<br>' + 'County: ' + '<strong>' + layer.feature.properties.COUNTY + '</strong>'
+  + '<br>' + 'Population: ' + '<strong>' + layer.feature.properties.POPULATION + '</strong>'
+  + '<br>' + 'Average response time: ' + '<strong>' + layer.feature.properties.card_incident_response_min_qy + ' minutes' + '</strong>'
+  // COUNTY
+  // POPULATION
 }
 
 // This is where we design our neighborhoods
@@ -176,54 +183,13 @@ var customLayer = L.geoJSON(null, {
 // 
 // BORRAR var dt = null, dt2 = null, dt3 = null
 
-dt = omnivore.topojson('data/card-geo.json', null, customLayer).addTo(map_card);
+dt = omnivore.topojson('data/card-avg-time.json', null, customLayer).addTo(map_card);
 console.log(customLayer)
 
 // different getStyles
 // load a different one when you click
 //
 
-// Create updateLayer
-
-
-$('#card').click(function(){
-
-// Borrar los anteriores
-  if (map.hasLayer(dt)) {
-    map.removeLayer(dt) //L: Quitar palabra reservada "return"
-  } // dt por customLayer
-
-  color2 = "dark"
-
-  //L: customLayer ya declarado de manera global (en linea 158). Por eso, quitamos de aquí la palabra reservada "var"
-  customLayer = L.geoJSON(null, {
-  // http://leafletjs.com/reference.html#geojson-style
-  'style': getStyle
-  }).bindTooltip(neighborhoodPopup)
-
-  dt = omnivore.topojson('data/card.json', null, customLayer).addTo(map)
-
-})
-
-$('#respir').click(function(){
-
-  // updateLayer("blue", "data/respir.json")
-
-  if (map.hasLayer(dt)) {
-    map.removeLayer(dt) //Luis: Quitar palabra reservada "return"
-  }
-
-  color2 = "blue" 
-
-  //L: customLayer ya declarado de manera global (en linea 158). Por eso, quitamos de aquí la palabra reservada "var"
-  customLayer = L.geoJSON(null, {
-  // http://leafletjs.com/reference.html#geojson-style
-  'style': getStyle
-  }).bindTooltip(neighborhoodPopup)
-
-  dt = omnivore.topojson('data/respir.json', null, customLayer).addTo(map)
-
-})
 
 
 //var dt = omnivore.topojson('../data/zipcodes_2.json').addTo(map);
