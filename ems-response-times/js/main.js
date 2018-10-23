@@ -3,7 +3,7 @@
 
 ////////////////////// Leaflet Map Projection
 
-var map = L.map('map', {zoomControl: false}).setView([40.838389, -73.940975], 14.5);
+var map = L.map('map2', {zoomControl: false}).setView([40.838389, -73.940975], 14.5);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVmZmV2ZXJoYXJ0MzgzIiwiYSI6IjIwNzVlOTA3ODI2MTY0MjM3OTgxMTJlODgzNjg5MzM4In0.QA1GsfWZccIB8u0FbhJmRg', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -20,44 +20,28 @@ function fadeMap(){
 ////////////////////// The journey begins here!
 ////////// Location, title and id of each step
 
-var warblerWaypoints = [{
+var warblerWaypoints2 = [{
   title: "First",
   id: 1,
-  location: {
-    lat: 40.556330,
-    lng: -73.926248
+  location2: {
+    lat: 40.758494,
+    lng: -73.973019
   }
 },
   {
   title: "Second",
   id: 2,
-  location: {
-    lat: 40.764257,
-    lng: -73.973423
+  location2: {
+    lat: 40.758870,
+    lng: -73.978674
   }
 },
   {
   title: "Third",
   id: 3,
-  location: {
-    lat: 40.847955,
-    lng: -73.787377,
-  }
-},
-  {
-  title: "Fourth",
-  id: 4,
-  location:  {
-    lat: 40.895037,
-    lng: -73.8067441
-  }
-},
-{
-  title: "Fifth",
-  id: 5,
-  location:  {
-    lat: 40.811452,
-    lng: -73.880229
+  location2: {
+    lat: 40.750939,
+    lng: -73.993434,
   }
 },
 ]
