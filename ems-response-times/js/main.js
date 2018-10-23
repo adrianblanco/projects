@@ -24,32 +24,40 @@ var warblerWaypoints = [{
   title: "First",
   id: 1,
   location: {
-    lat: 40.838389,
-    lng: -73.940975
+    lat: 40.556330,
+    lng: -73.926248
   }
 },
   {
   title: "Second",
   id: 2,
   location: {
-    lat: 40.816682,
-    lng: -73.956529
+    lat: 40.764257,
+    lng: -73.973423
   }
 },
   {
   title: "Third",
   id: 3,
   location: {
-    lat: 40.779224,
-    lng: -73.9769575,
+    lat: 40.847955,
+    lng: -73.787377,
   }
 },
   {
   title: "Fourth",
   id: 4,
   location:  {
-    lat: 40.763841,
-    lng: -73.929133
+    lat: 40.895037,
+    lng: -73.8067441
+  }
+},
+{
+  title: "Fifth",
+  id: 5,
+  location:  {
+    lat: 40.811452,
+    lng: -73.880229
   }
 },
 ]

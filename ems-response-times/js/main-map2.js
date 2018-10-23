@@ -24,24 +24,24 @@ var warblerWaypoints2 = [{
   title: "First",
   id: 1,
   location2: {
-    lat: 40.838389,
-    lng: -73.940975
+    lat: 40.758494,
+    lng: -73.973019
   }
 },
   {
   title: "Second",
   id: 2,
   location2: {
-    lat: 40.816682,
-    lng: -73.956529
+    lat: 40.758870,
+    lng: -73.978674
   }
 },
   {
   title: "Third",
   id: 3,
   location2: {
-    lat: 40.779224,
-    lng: -73.9769575,
+    lat: 40.750939,
+    lng: -73.993434,
   }
 },
 ]
