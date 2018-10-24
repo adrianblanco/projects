@@ -3,7 +3,7 @@
 
 ////////////////////// Leaflet Map Projection
 
-var map_card = L.map('map_card', {zoomControl: false}).setView([40.811712, -73.883147], 13);
+var map_card = L.map('map_card', {zoomControl: false}).setView([40.555774, -73.924060], 13);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVmZmV2ZXJoYXJ0MzgzIiwiYSI6IjIwNzVlOTA3ODI2MTY0MjM3OTgxMTJlODgzNjg5MzM4In0.QA1GsfWZccIB8u0FbhJmRg', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -24,8 +24,8 @@ var warblerWaypoints = [{
   title: "First",
   id: 1,
   location: {
-    lat: 40.811712, 
-    lng: -73.883147
+    lat: 40.555774,  
+    lng: -73.924060
   }
 },
   {
@@ -48,8 +48,8 @@ var warblerWaypoints = [{
   title: "Fourth",
   id: 4,
   location:  {
-    lat: 40.895037,
-    lng: -73.8067441
+    lat: 40.888744, 
+    lng: -73.825284
   }
 },
 {

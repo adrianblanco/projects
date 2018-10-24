@@ -66,6 +66,7 @@ p {
     padding-bottom: 0;
 }
 
+
 /* choose a light or dark theme to add to the body tag. */
 .dark-theme {
   background-color: #181414;
@@ -95,6 +96,14 @@ p {
 
 .row {
     padding-bottom: 2.5em;
+}
+
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 
@@ -157,6 +166,7 @@ sub-font
     margin-top: 2rem;
     font-weight: 400;
     color: grey;
+    padding-bottom: 1em;
 }
 
 .date {
@@ -221,7 +231,7 @@ padding: 0;
 }
 
 .step {
-min-height: 300px;
+min-height: 280px;
 background: blue;
 }
 
@@ -232,8 +242,9 @@ height: auto;
 
 .box {
 	margin-bottom: 100vh;
-	padding: 20px;
+	padding: 12px;
 	background: rgba(255,255,255,.6);
+    width: 100%;
 }
 
 .scroll__graphic {
@@ -251,7 +262,7 @@ transform: translate3d(0, 0, 0);
 position: relative;
 padding: 21rem 1rem;
 max-width: 30rem;
-width: 33%;
+width: 40%;
 }
 
 .overlay {
@@ -318,7 +329,72 @@ p {
     color: #000000;
 }
 
+.justify-content-center {
+    padding-bottom: 0em;
+}
+
 
 .source-info {
     padding: 1em 1em;
+}
+
+
+/*** MQ ***/
+@media screen and (min-width: 1360px) {
+    
+}
+
+@media screen and (max-width: 769px) {
+
+.scroll__text {
+
+    font-size: 0.95em;
+    width: 50%;
+}
+
+}
+
+@media screen and (max-width: 767px) {
+
+.scroll__text {
+
+    font-size: 0.95em;
+    width: 50%;
+}
+
+}
+
+@media screen and (max-width: 450px) {
+
+.scroll__text {
+
+    font-size: 0.95em;
+    width: 100%;
+}
+
+}
+
+}
+
+@media screen and (max-width: 375px) {
+
+.scroll__text {
+
+    font-size: 0.7em;
+    padding: 21rem 1rem;
+    max-width: 25rem;
+    width: 100%;
+}
+
+}
+@media screen and (max-width: 320px) {
+
+.scroll__text {
+
+    font-size: 0.7em;
+    padding: 21rem 1rem;
+    max-width: 25rem;
+    width: 100%;
+}
+
 }
