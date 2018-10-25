@@ -114,15 +114,19 @@ h3 {
 
 .info {
   height: 100px;
-  background: lightgrey;
+  background: #fffad6;
 }
 
 .info-pad {
   /** position: absolute; **/
   height: 100px;
   background: lightgrey;
-  padding: 0.5em;
+  padding: 0.5em 0;
   vertical-align: center;
+}
+
+.col-lg-10 {
+    padding: 0;
 }
 
 /*

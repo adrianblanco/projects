@@ -7,8 +7,8 @@ var margin = {
   left: 40
 }
 
-var width = 600 - margin.left - margin.right
-var height = 400 - margin.top - margin.bottom
+var width = 650 - margin.left - margin.right
+var height = 450 - margin.top - margin.bottom
 
 // You'll probably need to edit this one
 var svg = d3
@@ -66,11 +66,14 @@ function ready(datapoints) {
       d3.select('#percent').text(function() { return formatDecimalComma(d.percent) + '%'})
       d3.select('#party').text(d.General_Party)
       d3.select('#funds').text(function() { return formatMoney(d.real_state) })
+      d3.select('#remove').style('display', 'none')
       d3.select('#info').style('display', 'block')
+
     })
     .on('mouseout', function(d) {
       d3.select(this).attr('fill', colorScale(d.Specific_Party))
       d3.select('#info').style('display', 'none')
+      d3.select('#remove').style('display', 'block')
     })
 
   var yAxis = d3
@@ -111,12 +114,25 @@ function ready(datapoints) {
     .append('text')
     .attr('class', 'y-label')
     .attr('transform', 'rotate(-90)')
-    .attr('y', 5 - margin.left)
+    .attr('y', 0 - margin.left)
     .attr('x', 0 - height / 2)
     .attr('dy', '1em')
     .style('text-anchor', 'middle')
     .style('font-size', '0.8em')
-    .text('% Real-estate contributions over campaign donations')
+    .text('% Real-estate funds over campaign donations')
+
+  svg
+    .append('text')
+    .attr('class', 'cuomo-annotation')
+    .attr('font-size', '0.9em')
+    .attr('font-weight', 'bold')
+    .attr('fill', '#536F95')
+      //.attr('transform', 'translate(' + width/2 + ' ,' + (height + margin.top + 35) + ')')
+    .attr('y', height / 6)
+    .attr('x', width / 1.7)
+    .attr('dy', -3)
+    .text('Andrew Cuomo')
+
 
   function render() {
 
@@ -125,7 +141,7 @@ function ready(datapoints) {
 
     // change width and height of the svg
     let newWidth = screenWidth - margin.left - margin.right
-    let newHeight = screenHeight - margin.top - margin.bottom
+    let newHeight = screenHeight/1.4 - margin.top - margin.bottom
 
     // Update your SVG
     let actualSvg = d3.select(svg.node().parentNode)
@@ -168,7 +184,7 @@ function ready(datapoints) {
         svg.selectAll('text').attr('font-size', 12),
         svg.selectAll('circle').attr('r', 3)
         svg.select('.x-label').text('RE contributions ($)')
-        svg.select('.y-label').text('% RE contributions over campaign donations')
+        svg.select('.y-label').text('% RE funds over campaign donations')
         var xAxis = d3.axisBottom(xPositionScale).ticks(7).tickFormat(d3.formatPrefix(".1", 1e6))
     } else {
         svg.selectAll('circle').attr('r', 5)
@@ -191,6 +207,10 @@ function ready(datapoints) {
       .call(yAxis)
 
     d3.select('.y-axis .domain').remove()
+
+    svg.select('.cuomo-annotation')
+       .attr('y', newHeight / 6.8)
+       .attr('x', newWidth / 1.41)
 
   }
 
