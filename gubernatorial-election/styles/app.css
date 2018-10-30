@@ -120,7 +120,7 @@ h3 {
 .info-pad {
   /** position: absolute; **/
   height: 100px;
-  background: lightgrey;
+  background: #fffad6;
   padding: 0.5em 0;
   vertical-align: center;
 }
