@@ -115,6 +115,10 @@ h3 {
 .info {
   height: 100px;
   background: #fffad6;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: lightgrey;
+  padding: 0.5em 0;
 }
 
 .info-pad {
@@ -123,6 +127,9 @@ h3 {
   background: #fffad6;
   padding: 0.5em 0;
   vertical-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: lightgrey;
 }
 
 .col-lg-10 {
