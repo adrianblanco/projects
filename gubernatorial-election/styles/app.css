@@ -117,19 +117,22 @@ h3 {
   background: #fffad6;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  color: lightgrey;
+  font-size: 0.9em;
+  color: grey;
   padding: 0.5em 0;
+  vertical-align: center;
 }
 
 .info-pad {
   /** position: absolute; **/
   height: 100px;
   background: #fffad6;
-  padding: 0.5em 0;
-  vertical-align: center;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  color: lightgrey;
+  font-size: 0.9em;
+  padding: 0.5em 0;
+  vertical-align: center;
+  color: grey;
 }
 
 .col-lg-10 {
