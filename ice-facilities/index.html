@@ -62,7 +62,7 @@
                  }
          });
 
-      _map.on("click", function(e) {
+      _map.on("hover", function(e) {
       var features = _map.queryRenderedFeatures(e.point, {
           layers: ["markers"]
       });
@@ -75,8 +75,8 @@
                             .setHTML("<h3>HOME SALES INFORMATION</h3>" +
                                 "<ul>" +
                                 "<li><b>" + feature.properties.Address + "</b></li>" +
-                                "<li>Property type: <b>" + feature.properties.PropType + "</b></li>" +
-                                "<li>Sale price: <b>" + feature.properties.AdjustedSa + "</b></li>" +
+                                "<li>State: <b>" + feature.properties.State + "</b></li>" +
+                                "<li>City: <b>" + feature.properties.City + "</b></li>" +
                                 "</ul>")
                             .addTo(_map);
       });
