@@ -62,24 +62,73 @@
                  }
          });
 
-      _map.on("hover", function(e) {
-      var features = _map.queryRenderedFeatures(e.point, {
-          layers: ["markers"]
+      // _map.on("click", function(e) {
+      // var features = _map.queryRenderedFeatures(e.point, {
+      //     layers: ["markers"]
+      // });
+      // if (!features.length) {
+      //     return;
+      // }
+      //var feature = features[0];
+      
+      // var popup = new mapboxgl.Popup ()
+      //                       .setLngLat(_map.unproject  (e.point))
+      //                       .setHTML("<h3>HOME SALES INFORMATION</h3>" +
+      //                           "<ul>" +
+      //                           "<li><b>" + feature.properties.Address + "</b></li>" +
+      //                           "<li>State: <b>" + feature.properties.State + "</b></li>" +
+      //                           "<li>City: <b>" + feature.properties.City + "</b></li>" +
+      //                           "</ul>")
+      //                       .addTo(_map);
+      // });
+
+
+      var popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
       });
-      if (!features.length) {
-          return;
-      }
-      var feature = features[0];
-      var popup = new mapboxgl.Popup ()
-                            .setLngLat(_map.unproject  (e.point))
-                            .setHTML("<h3>HOME SALES INFORMATION</h3>" +
-                                "<ul>" +
-                                "<li><b>" + feature.properties.Address + "</b></li>" +
-                                "<li>State: <b>" + feature.properties.State + "</b></li>" +
-                                "<li>City: <b>" + feature.properties.City + "</b></li>" +
-                                "</ul>")
-                            .addTo(_map);
+
+      _map.on('mouseenter', 'markers', function(e) {
+
+      
+
+        _map.getCanvas().style.cursor = 'pointer';
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        //var description = e.features[0].properties.description;
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        //while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        //    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        //}
+        // .setLngLat(_map.unproject(e.point))
+
+        var features = _map.queryRenderedFeatures(e.point, {
+           layers: ['markers']
+        });
+        if (!features.length) {
+           return;
+        }
+        console.log(features)
+        var feature = features[0];
+        console.log(feature.properties)
+
+        console.log(e.features[0].properties)
+        popup.setLngLat(coordinates)
+          // ${e.features[0].properties.Address}
+          .setHTML(`<h3>${feature.properties.Address}</h3>
+                                <ul> 
+                                <li>Property type: <b>${e.features[0].properties.Address}</b></li>
+                                <li>Sale price: <b>${e.features[0].properties.State}</b></li>
+                                </ul>`)
+          .addTo(_map);
       });
+
+      _map.on('mouseleave', 'markers', function() {
+        _map.getCanvas().style.cursor = '';
+        popup.remove();
+      });
+
     }
 
     _map.once ("style.load", function (e)
