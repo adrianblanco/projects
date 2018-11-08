@@ -303,11 +303,13 @@ sub-font
 }
 
 .dem {
-  color: #062E69;
+  color: #536E95;
+  font-weight: 400;
 }
 
 .rep {
   color: #E00D3E;
+  font-weight: 400;
 }
 
 /** Review **/
