@@ -302,6 +302,14 @@ sub-font
     background-color: lightblue;
 }
 
+.dem {
+  color: #062E69;
+}
+
+.rep {
+  color: #E00D3E;
+}
+
 /** Review **/
 
       svg { 
@@ -321,4 +329,3 @@ sub-font
         stroke-width: 0.5;
         stroke: #999;
       }
-
