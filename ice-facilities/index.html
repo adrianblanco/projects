@@ -23,8 +23,8 @@
         _centerLat   = 39.976665, //location for mineapolis
         _centerLng   = -98.268653,
         _dataFile    = "./ice-geo.geojson",
-        _accessToken = "pk.eyJ1IjoiYmx1ZXNoaXJ0IiwiYSI6ImYwMDA1MDI5ODdlMjk1YWZjMGQ3YTEyMGQxZGRmODQ2In0.kSD1BJsjJr2z8Meuz8F4Uw", // change access token
-        _mapStyle    = "mapbox://styles/blueshirt/cjn107vq99chu2rmo0luej5sn"; // and our own style
+        _accessToken = "pk.eyJ1IjoiYWRyaWFuYmxhbmNvIiwiYSI6ImNqbmFqZDlsaDFlczczdm1sNHhwcWIwb28ifQ.u640xOYFE_NDcgw7hBu0ig", // change access token
+        _mapStyle    = "mapbox://styles/adrianblanco/cjnaje3774w8m2rmmyxkw0pf9"; // and our own style
 
     mapboxgl.accessToken = _accessToken;
     _map = new mapboxgl.Map ({
@@ -88,6 +88,7 @@
         closeOnClick: false
       });
 
+      // https://www.mapbox.com/mapbox-gl-js/example/popup-on-hover/
       _map.on('mouseenter', 'markers', function(e) {
 
       
