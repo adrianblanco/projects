@@ -8,13 +8,18 @@
   <!-- loading the mapbox, local if it is a real project-->
   <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js"></script>
   <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css" rel="stylesheet" />
-  <style>
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,700,900" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">   
+
 </head>
 
 <body>
+
+<h1>Ice facilities</h1>
+
+<p>Hey!</p>
 
 <div id="map"></div>
   <script>
@@ -117,11 +122,7 @@
         console.log(e.features[0].properties)
         popup.setLngLat(coordinates)
           // ${e.features[0].properties.Address}
-          .setHTML(`<h3>${feature.properties.Address}</h3>
-                                <ul> 
-                                <li>Property type: <b>${e.features[0].properties.Address}</b></li>
-                                <li>Sale price: <b>${e.features[0].properties.State}</b></li>
-                                </ul>`)
+          .setHTML(``)
           .addTo(_map);
       });
 
