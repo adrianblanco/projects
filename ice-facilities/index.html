@@ -37,10 +37,12 @@
 
 <body>
 
-<div class="col-lg-10">
-<h1>Ice facilities</h1>
+<div class="col-lg-6">
 
-<p>Immigrant ICE detention center locations in every state</p>
+  <h1 class="headline">ICE facilities</h1>
+
+  <p class="nut">Immigrant ICE detention center locations in every state</p>
+  
 </div>
 
 <div id="map"></div>
@@ -144,7 +146,49 @@
         console.log(e.features[0].properties)
         popup.setLngLat(coordinates)
           // ${e.features[0].properties.Address}
-          .setHTML(``)
+          .setHTML(`<div class"info-window">
+          			<div class="tip-title">
+					${feature.properties.Address}
+          			</div>
+
+					<div class="tip-title">
+          			${e.features[0].properties.Address}
+          			</div>
+
+          			<table class="tip-table reset-table">
+            		<tbody>
+            		  <tr>
+              		    <th class="tip-border">Bloque</th>
+              		    <th class="tr tip-border">Votos</th>
+              		    <th class="tr tip-border">Porcentaje</th>
+            		  </tr>
+            		
+            		  <tr>
+
+              		    <td class="tip-border">Location:</td>
+              		    <td class="tr tip-border shentox">
+                	    ${e.features[0].properties.State}
+              		    </td>
+              		  
+              		    <td class="tr tip-border shentox">
+                	    ${e.features[0].properties.State}
+              		    </td>
+                     </tr>
+
+                     <tr>
+                     
+                     <td>Percentage:</td>
+                       <td class="tr shentox">
+                       ${e.features[0].properties.State}
+                       </td>
+                     
+                       <td class="tr shentox">
+                       ${e.features[0].properties.State} <span style="visibility: hidden">%</span>
+                     </td>
+
+                     </tr>
+
+                    </div>`)
           .addTo(_map);
       });
 
