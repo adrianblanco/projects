@@ -175,9 +175,10 @@ table {
 
 
 
-    .mapboxgl-popup-anchor-bottom, .mapboxgl-popup-anchor-bottom-left, .mapboxgl-popup-anchor-bottom-right {
+    .mapboxgl-popup-anchor, .mapboxgl-popup-anchor-bottom, .mapboxgl-popup-anchor-bottom-left, .mapboxgl-popup-anchor-bottom-right {
     -webkit-flex-direction: column-reverse;
     flex-direction: column-reverse;
+    display: none;
     }
 
     .mapboxgl-popup-tip {
@@ -200,9 +201,6 @@ table {
     pointer-events: auto;
     }
 
-    .mapboxgl-popup-anchor {
-    display: none;
-    }
 
     .tip-table .tip-border {
     border-bottom: 1px solid #eee;
