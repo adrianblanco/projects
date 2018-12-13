@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900" rel="stylesheet">
+
+
+        <style>
+
+        /*** RESET ***/
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+          .container {
+            /*max-width: 60rem;*/
+            font-family: 'Roboto', sans-serif;
+
+          }
+
+          .sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+          }
+
+          h1 {
+            text-align: center;
+            margin-top: 1em;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 900;
+            font-size: 3em;
+            color: black;
+            padding-top: 1em;
+            padding-bottom: 2em;
+          }
+
+          p {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            line-height: 1.6em;
+            margin-bottom: 1.6em;
+          }
+
+          #chart-4 .y-axis path {
+            display: none;
+          }
+
+          #chart-4 .axis text {
+            fill: #999;
+          }
+
+          #chart-4 .axis line
+           {
+            stroke: #999;
+            stroke-width: 0.5px;
+          }
+
+          #chart-4 .axis .domain {
+            stroke: #999;
+            stroke-width: 0.5px;
+          }
+
+          #chart-4 .axis {
+            font-size: 12px;
+          }
+
+          p small {
+            background: #fff880;
+          }
+
+          .colored-text {
+            padding: 1px 7px;
+            display: inline-block;
+          }
+
+          .center-content {
+            text-align: center;
+          }
+
+          .text-container {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+
+        </style>
+        <style>
+          /* Highlight steps when you scroll into them */
+          /* You can delete this one! */
+/*          .step.entered {
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-transition: 1.5s background;
+            -moz-transition: 1.5s background;
+            transition: 1.5s background;
+            background: #fff888;
+          }*/
+
+          /* Set the sticky things 2% from the top */
+          .sticky {
+            top: 0vh;
+            align-self: flex-start;  
+          }
+
+          /* Minimum height of 70% of the screen */
+          .step {
+            min-height: 75vh;
+          }
+
+          .step > p {
+            background: rgba(255,255,255,0.9);
+            padding: 10px 0;
+            margin-bottom: 0;
+            padding-bottom: 1rem;
+          }
+        </style>
+  </head>
+  
+  <body>
+
+    <div class="bg-title">
+    <div class="text-container">
+      <div class="col-sm-8">
+      <div class="row">
+          <h1>Headline Headline Headline Headline Headline</h1>
+      </div>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="text-container">
+        <div class="col-sm-6 mt-2 mb-2">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+        </div>
+    </div>
+
+    <div class="container">
+      <div class="row mt-5 mb-5">
+       
+        <div class="col-lg-6 sticky">
+          <div id="chart-1"></div>
+        </div>
+        <div class="col-lg-6">
+
+          <div class='step' id="step1">
+
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+
+          </div>
+
+          <div class='step' id="step2">
+
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+
+          </div>
+
+          <div class='step' id="step3">
+
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+
+          </div>
+
+
+          <div class='step' id="step4">
+
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+
+          </div>
+
+
+          <div class='step' id="step5">
+
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="text-container">
+        <div class="col-sm-6 mt-2 mb-2">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        </div>
+    </div>
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <script src="js/enter-view.js"></script>
+
+    <script src="js/chart.js"></script>
+
+    <script src="js/scrollytelling.js"></script>
+
+   </body>
+</html>
