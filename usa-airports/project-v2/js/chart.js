@@ -125,7 +125,7 @@
     Promise.all([
         d3.csv('daily_delays.csv'),
         d3.csv('TotalDay.csv'),
-        d3.json('https://github.com/adrianblanco/projects/blob/master/usa-airports/project-v2/data/world.topojson?short_path=7a306fd')
+        d3.json('https://github.com/adrianblanco/projects/blob/master/usa-airports/project-v2/data/world.topojson')
       ])
       .then(ready)
       .catch(err => {
