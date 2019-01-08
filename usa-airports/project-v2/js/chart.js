@@ -188,17 +188,17 @@
           svg.selectAll('.country').attr('d', path)
           svg.selectAll('.sphere').attr('d', path)
           }
-          svg.append('g')
-            .selectAll('.latlon')
-            .data(locations)
-            .enter()
-            .append('circle')
-            .attr('cx', d => projection([d.longitude, d.latitude])[0])
-            .attr('cy', d => projection([d.longitude, d.latitude])[1])
-            .attr('fill', 'red')
-            .attr('r', 4)
       })
 
+      svg.append('g')
+        .selectAll('.latlon')
+        .data(locations)
+        .enter()
+        .append('circle')
+        .attr('cx', d => projection([d.longitude, d.latitude])[0])
+        .attr('cy', d => projection([d.longitude, d.latitude])[1])
+        .attr('fill', 'red')
+        .attr('r', 4)
 
 
       })
