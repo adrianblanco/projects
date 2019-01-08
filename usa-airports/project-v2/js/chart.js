@@ -165,12 +165,12 @@
         .attr('stroke-width', 0.1)
 
 
-      svg.append('circle')
+      svg.append('g')
         .selectAll('.latlon')
-        .attr('class', 'latlon')
         .data(locations)
         .enter()
         .append('circle')
+        .attr('class', 'latlon')
         .attr('cx', d => projection([d.longitude, d.latitude])[0])
         .attr('cy', d => projection([d.longitude, d.latitude])[1])
         .attr('fill', 'red')
