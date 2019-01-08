@@ -181,7 +181,7 @@
                           .attr('cy', d => projection([d.longitude, d.latitude])[1])
                           .attr('fill', d => {
                               const coordinate = [d.longitude, d.latitude];
-                              gdistance = d3.geoDistance(coordinate, projection.invert(center));
+                              gdistance = d3.geoOrthographic(coordinate, projection.invert(center));
                               return gdistance > 1.57 ? 'none' : 'steelblue';
                           })
                           .attr('r', 7);
