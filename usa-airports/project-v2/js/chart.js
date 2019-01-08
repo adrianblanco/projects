@@ -169,26 +169,17 @@
     {"latitude": 23.634501, "longitude": -102.552784}
 ]
 
-    const markerGroup = svg.append('g')
+    svg
+      .append('g')
+      .selectAll('.latlon')
+      .data(locations)
+      .enter()
+      .append('circle')
+      .attr('cx', d => projection([d.longitude, d.latitude])[0])
+      .attr('cy', d => projection([d.longitude, d.latitude])[1])
+      .attr('fill', 'steelblue')
+      .attr('r', 7);
 
-      const markers = markerGroup.selectAll('circle')
-                          .data(locations);
-                      markers
-                          .enter()
-                          .append('circle')
-                          .merge(markers)
-                          .attr('cx', d => projection([d.longitude, d.latitude])[0])
-                          .attr('cy', d => projection([d.longitude, d.latitude])[1])
-                          .attr('fill', d => {
-                              const coordinate = [d.longitude, d.latitude];
-                              gdistance = d3.geoOrthographic(coordinate, projection.invert(center));
-                              return gdistance > 1.57 ? 'none' : 'steelblue';
-                          })
-                          .attr('r', 7);
-
-    markerGroup.each(function () {
-                        this.parentNode.appendChild(this);
-                    });
 
       // Scrollytelling
 
