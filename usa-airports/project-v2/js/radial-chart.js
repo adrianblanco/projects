@@ -14,7 +14,7 @@ let svg = d3.select('#radial').append('svg')
   .append('g')
   .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
-let tooltip = d3.select('body').append('div')
+let tooltip = d3.select('#radial').append('div')
   .attr('class', 'tooltip');
 
 const PI = Math.PI,
@@ -22,6 +22,8 @@ const PI = Math.PI,
   arcPadding = 10,
   labelPadding = -10,
   numTicks = 7;
+
+//var container = d3.select('#radial')
 
     Promise.all([
         d3.csv('daily_delays.csv'),
