@@ -158,13 +158,31 @@
         .attr('stroke', 'black')
         .attr('stroke-width', 0.1)
 
-      let target_nyc = [-nyc[0], -nyc[1]]
+      let locations = [
+    {"latitude": 22, "longitude": 88},
+    {"latitude": 12.61315, "longitude": 38.37723},
+    {"latitude": -30, "longitude": -58},
+    {"latitude": -14.270972, "longitude": -170.132217},
+    {"latitude": 28.033886, "longitude": 1.659626},
+    {"latitude": 40.463667, "longitude": -3.74922},
+    {"latitude": 35.907757, "longitude": 127.766922},
+    {"latitude": 23.634501, "longitude": -102.552784}
+]
 
-      svg
-        .append('circle')
-        .attr('fill', 'red')
-        .attr('r', 5)
-        .attrTween('transform', translateAlong(target_nyc))
+      const markers = markerGroup.selectAll('circle')
+                          .data(locations);
+                      markers
+                          .enter()
+                          .append('circle')
+                          .merge(markers)
+                          .attr('cx', d => projection([d.longitude, d.latitude])[0])
+                          .attr('cy', d => projection([d.longitude, d.latitude])[1])
+                          .attr('fill', d => {
+                              const coordinate = [d.longitude, d.latitude];
+                              gdistance = d3.geoDistance(coordinate, projection.invert(center));
+                              return gdistance > 1.57 ? 'none' : 'steelblue';
+                          })
+                          .attr('r', 7);
 
       // Scrollytelling
 
