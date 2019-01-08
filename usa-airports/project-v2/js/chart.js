@@ -49,7 +49,7 @@
     let sf = [-122, 37]
     let austin = [-97, 30]
 
-    let projection = d3.geoMercator()
+    let projection = d3.geoOrthographic()
     let path = d3.geoPath().projection(projection)
 
     let locations = [
@@ -163,6 +163,14 @@
         .attr('fill', '#F5ECCE')
         .attr('stroke', 'black')
         .attr('stroke-width', 0.1)
+        .selectAll('.latlon')
+        .data(locations)
+        .enter()
+        .append('circle')
+        .attr('cx', d => projection([d.longitude, d.latitude])[0])
+        .attr('cy', d => projection([d.longitude, d.latitude])[1])
+        .attr('fill', 'red')
+        .attr('r', 4)
 
 
 
