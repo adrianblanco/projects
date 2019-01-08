@@ -143,7 +143,7 @@
       let countries = topojson.feature(json, json.objects.countries)
       projection.fitSize([width, height], countries)
 
-      var esfera = svg
+      svg
         .append('path')
         .datum({ type: 'Sphere' })
         .attr('d', path)
@@ -166,15 +166,9 @@
 
 
 
-      esfera.append('g')
-        .selectAll('.sphere')
-        .data(locations)
-        .enter()
-        .append('circle')
-        .attr('cx', d => projection([d.longitude, d.latitude])[0])
-        .attr('cy', d => projection([d.longitude, d.latitude])[1])
-        .attr('fill', 'red')
-        .attr('r', 4)
+    svg.append('circle')
+      .attr('r', 5)
+      .attr('transform', `translate(${projection(nyc)})`)
 
 
       // Scrollytelling
