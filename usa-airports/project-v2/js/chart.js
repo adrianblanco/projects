@@ -52,6 +52,12 @@
     let projection = d3.geoOrthographic()
     let path = d3.geoPath().projection(projection)
 
+    let locations = [
+    {"latitude": 40, "longitude": -74},
+    {"latitude": 37, "longitude": -122},
+    {"latitude": 30, "longitude": -97}
+]
+
     // d3.json(require('./data/world.topojson'))
     //   .then(ready)
     //   .catch(err => console.log('Failed on', err))
@@ -137,7 +143,7 @@
       let countries = topojson.feature(json, json.objects.countries)
       projection.fitSize([width, height], countries)
 
-      svg
+      var esfera = svg
         .append('path')
         .datum({ type: 'Sphere' })
         .attr('d', path)
@@ -158,13 +164,9 @@
         .attr('stroke', 'black')
         .attr('stroke-width', 0.1)
 
-      let locations = [
-    {"latitude": 40, "longitude": -74},
-    {"latitude": 37, "longitude": -122},
-    {"latitude": 30, "longitude": -97}
-]
 
-      svg.append('g')
+
+      esfera.append('g')
         .selectAll('.sphere')
         .data(locations)
         .enter()
