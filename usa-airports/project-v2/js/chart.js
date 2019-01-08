@@ -171,8 +171,8 @@
         .enter()
         .append('circle')
         .attr('class', 'latlon')
-        .attr('cx', d => projection([d.longitude, d.latitude])[0])
-        .attr('cy', d => projection([d.longitude, d.latitude])[1])
+        //.attr('cx', d => projection([d.longitude, d.latitude])[0])
+        //.attr('cy', d => projection([d.longitude, d.latitude])[1])
         .attr('fill', 'red')
         .attr('r', 4)
 
