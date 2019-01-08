@@ -164,6 +164,16 @@
     {"latitude": 30, "longitude": -97}
 ]
 
+      svg.append('g')
+        .selectAll('.sphere')
+        .data(locations)
+        .enter()
+        .append('circle')
+        .attr('cx', d => projection([d.longitude, d.latitude])[0])
+        .attr('cy', d => projection([d.longitude, d.latitude])[1])
+        .attr('fill', 'red')
+        .attr('r', 4)
+
 
       // Scrollytelling
 
@@ -189,17 +199,6 @@
           svg.selectAll('.sphere').attr('d', path)
           }
       })
-
-      svg.append('g')
-        .selectAll('.sphere')
-        .data(locations)
-        .enter()
-        .append('circle')
-        .attr('cx', d => projection([d.longitude, d.latitude])[0])
-        .attr('cy', d => projection([d.longitude, d.latitude])[1])
-        .attr('fill', 'red')
-        .attr('r', 4)
-
 
       })
 
