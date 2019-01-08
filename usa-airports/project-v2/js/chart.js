@@ -159,9 +159,9 @@
         .attr('stroke-width', 0.1)
 
       let locations = [
-    {"latitude": -74, "longitude": 40},
-    {"latitude": -122, "longitude": 37},
-    {"latitude": -97, "longitude": 30}
+    {"latitude": 40, "longitude": -74},
+    {"latitude": 37, "longitude": -122},
+    {"latitude": 30, "longitude": -97}
 ]
 
     svg
