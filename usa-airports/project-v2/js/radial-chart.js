@@ -8,7 +8,7 @@ const width = 960,
 
 const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-let svg = d3.select('body').append('svg')
+let svg = d3.select('#radial').append('svg')
   .attr('width', width)
   .attr('height', height)
   .append('g')
@@ -22,8 +22,6 @@ const PI = Math.PI,
   arcPadding = 10,
   labelPadding = -10,
   numTicks = 7;
-
-var container = d3.select('#radial');
 
     Promise.all([
         d3.csv('daily_delays.csv'),
