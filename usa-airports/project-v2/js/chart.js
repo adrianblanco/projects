@@ -167,6 +167,7 @@
 
       svg.append('circle')
         .selectAll('.latlon')
+        .attr('class', 'latlon')
         .data(locations)
         .enter()
         .append('circle')
