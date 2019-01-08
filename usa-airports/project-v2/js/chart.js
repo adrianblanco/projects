@@ -191,7 +191,7 @@
       })
 
       svg.append('g')
-        .selectAll('.latlon')
+        .selectAll('.sphere')
         .data(locations)
         .enter()
         .append('circle')
