@@ -169,6 +169,8 @@
     {"latitude": 23.634501, "longitude": -102.552784}
 ]
 
+    const markerGroup = svg.append('g')
+
       const markers = markerGroup.selectAll('circle')
                           .data(locations);
                       markers
@@ -183,6 +185,10 @@
                               return gdistance > 1.57 ? 'none' : 'steelblue';
                           })
                           .attr('r', 7);
+
+    markerGroup.each(function () {
+                        this.parentNode.appendChild(this);
+                    });
 
       // Scrollytelling
 
