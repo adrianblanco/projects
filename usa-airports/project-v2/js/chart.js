@@ -158,6 +158,14 @@
         .attr('stroke', 'black')
         .attr('stroke-width', 0.1)
 
+      let target_nyc = [-nyc[0], -nyc[1]]
+
+      svg
+        .append('circle')
+        .attr('fill', 'red')
+        .attr('r', 5)
+        .attrTween('transform', translateAlong(target_nyc))
+
       // Scrollytelling
 
       // d3.select('#blank-graph').on('stepin', () => {
