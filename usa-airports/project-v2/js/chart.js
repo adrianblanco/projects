@@ -49,7 +49,7 @@
     let sf = [-122, 37]
     let austin = [-97, 30]
 
-    let projection = d3.geoOrthographic()
+    let projection = d3.geoMercator()
     let path = d3.geoPath().projection(projection)
 
     let locations = [
@@ -166,9 +166,19 @@
 
 
 
-    svg.append('circle')
-      .attr('r', 5)
-      .attr('transform', `translate(${projection(nyc)})`)
+      esfera.append('g')
+        .selectAll('.latlon')
+        .data(locations)
+        .enter()
+        .append('circle')
+        .attr('cx', d => projection([d.longitude, d.latitude])[0])
+        .attr('cy', d => projection([d.longitude, d.latitude])[1])
+        .attr('fill', 'red')
+        .attr('r', 4)
+
+        svg.append('circle')
+    .attr('r', 5)
+    .attr('transform', `translate(${projection(nyc)})`)
 
 
       // Scrollytelling
