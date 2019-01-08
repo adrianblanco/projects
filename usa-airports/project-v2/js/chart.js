@@ -226,7 +226,6 @@
             svg.selectAll('.country').attr('d', path)
             svg.selectAll('.sphere').attr('d', path)
             svg.selectAll('.latlon').attr('cx', d => projection([d.longitude, d.latitude])[0]).attr('cy', d => projection([d.longitude, d.latitude])[1])
-
             }
       })
 
@@ -250,6 +249,8 @@
             projection.rotate(currentRotation) // 0.5 instead of t, it will be stuck halfway, in the Atlantic Ocean
             svg.selectAll('.country').attr('d', path)
             svg.selectAll('.sphere').attr('d', path)
+            svg.selectAll('.latlon').attr('cx', d => projection([d.longitude, d.latitude])[0]).attr('cy', d => projection([d.longitude, d.latitude])[1])
+
             }
       })
 
@@ -277,6 +278,8 @@
             projection.rotate(currentRotation) // 0.5 instead of t, it will be stuck halfway, in the Atlantic Ocean
             svg.selectAll('.country').attr('d', path)
             svg.selectAll('.sphere').attr('d', path)
+            svg.selectAll('.latlon').attr('cx', d => projection([d.longitude, d.latitude])[0]).attr('cy', d => projection([d.longitude, d.latitude])[1])
+
             }
       })
 
