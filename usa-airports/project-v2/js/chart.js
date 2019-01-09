@@ -180,7 +180,7 @@
         .attr('class', 'latlon')
         //.attr('cx', d => projection([d.longitude, d.latitude])[0])
         //.attr('cy', d => projection([d.longitude, d.latitude])[1])
-        .attr('fill', 'red')
+        .attr('fill', 'white')
         .attr('r', 2)
 
     //     svg.append('circle')
@@ -232,7 +232,7 @@
             projection.rotate(currentRotation) // 0.5 instead of t, it will be stuck halfway, in the Atlantic Ocean
             svg.selectAll('.country').attr('d', path)
             svg.selectAll('.sphere').attr('d', path)
-            svg.selectAll('.latlon').attr('cx', d => projection([d.longitude, d.latitude])[0]).attr('cy', d => projection([d.longitude, d.latitude])[1])
+            svg.selectAll('.latlon').attr('fill', 'red').attr('cx', d => projection([d.longitude, d.latitude])[0]).attr('cy', d => projection([d.longitude, d.latitude])[1])
             }
       })
 
@@ -256,7 +256,7 @@
             projection.rotate(currentRotation) // 0.5 instead of t, it will be stuck halfway, in the Atlantic Ocean
             svg.selectAll('.country').attr('d', path)
             svg.selectAll('.sphere').attr('d', path)
-            svg.selectAll('.latlon').attr('cx', d => projection([d.longitude, d.latitude])[0]).attr('cy', d => projection([d.longitude, d.latitude])[1])
+            svg.selectAll('.latlon').attr('fill', 'red').attr('cx', d => projection([d.longitude, d.latitude])[0]).attr('cy', d => projection([d.longitude, d.latitude])[1])
 
             }
       })
@@ -285,7 +285,7 @@
             projection.rotate(currentRotation) // 0.5 instead of t, it will be stuck halfway, in the Atlantic Ocean
             svg.selectAll('.country').attr('d', path)
             svg.selectAll('.sphere').attr('d', path)
-            svg.selectAll('.latlon').attr('cx', d => projection([d.longitude, d.latitude])[0]).attr('cy', d => projection([d.longitude, d.latitude])[1])
+            svg.selectAll('.latlon').attr('fill', 'red').attr('cx', d => projection([d.longitude, d.latitude])[0]).attr('cy', d => projection([d.longitude, d.latitude])[1])
 
             }
       })
