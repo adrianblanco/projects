@@ -53,10 +53,17 @@
     let path = d3.geoPath().projection(projection)
 
     let locations = [
-    {"latitude": 40, "longitude": -74},
-    {"latitude": 37, "longitude": -122},
-    {"latitude": 30, "longitude": -97}
-]
+    {"latitude": 40.2778, "longitude": -74.8137, "airport": "Trenton-Mercer Airport (TTN)"},
+    {"latitude": 41.4984, "longitude": -74.1009, "airport": "New York Stewart International Airport (SWF)"},
+    {"latitude": 39.6426, "longitude": -106.9145, "airport": "Eagle County Regional Airport (EGE)"},
+    {"latitude": 41.0683, "longitude": -73.7087, "airport": "Westchester County Airport (HPN)"},
+    {"latitude": 37.3204, "longitude": -79.9701, "airport": "Roanoke-Blacksburg Regional Airport (ROA)"},
+    {"latitude": 40.6895, "longitude": -74.1745, "airport": "Newark Liberty International Airport (EWR)"},
+    {"latitude": 41.7868, "longitude": -87.7522, "airport": "Chicago Midway International Airport (MDW)"},
+    {"latitude": 38.1395, "longitude": -78.4516, "airport": "Charlottesville Albemarle Airport (CHO)"},
+    {"latitude": 32.8481, "longitude": -96.8512, "airport": "Dallas Love Field (DAL)"},
+    {"latitude": 40.9154, "longitude": -81.4419, "airport": "Akron-Canton Airport (CAK)"}
+    ]
 
     // d3.json(require('./data/world.topojson'))
     //   .then(ready)
