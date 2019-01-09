@@ -181,7 +181,7 @@
         //.attr('cx', d => projection([d.longitude, d.latitude])[0])
         //.attr('cy', d => projection([d.longitude, d.latitude])[1])
         .attr('fill', 'red')
-        .attr('r', 4)
+        .attr('r', 2)
 
     //     svg.append('circle')
     // .attr('r', 5)
